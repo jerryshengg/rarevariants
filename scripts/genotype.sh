@@ -12,9 +12,9 @@ FINAL_VCF_DIR="finalvcf"
 MERGED_VCF="${FINAL_VCF_DIR}/merged.vcf.gz"
 
 # Genotype GVCFs (uncomment and adjust as needed)
-#for ii in {1..22}; do
-#    gatk GenotypeGVCFs -R "$GENOME_FA" -V gendb://"$GENDB_DIR"/chr${ii}_gdb -O "$FINAL_VCF_DIR"/chr${ii}.vcf.gz
-#done
+for ii in {1..22}; do
+    gatk GenotypeGVCFs -R "$GENOME_FA" -V gendb://"$GENDB_DIR"/chr${ii}_gdb -O "$FINAL_VCF_DIR"/chr${ii}.vcf.gz
+done
 
 # Gather VCF files
 VCF_INPUTS=$(for i in {1..22}; do echo "I=${FINAL_VCF_DIR}/chr${i}.vcf.gz"; done)
