@@ -7,10 +7,10 @@ Pipeline for rare variant association analysis (FASTQ --> TSV association file f
 4. Run VariantRecalibrate.sh
 5. Run ApplyVQSR.sh
 6. Run variant_filt.sh
-7. In finalvcf/filteringdbsnp folder, unzip merged.vcf.gz files 
-8. In removeChrChrM_removemultialle.pl to get merged.nochrnoChrM_removemultialle.vcf
-9. In annotate_Jerry.sh for annotation of annovar
-10. Run vcf2gds.R change vcf.gz to gds file
-11. Run debug_R420PChome_code__removemultialle.R to get the result
+7. In finalvcf/filteringdbsnp folder, unzip merged.vcf.gz file
+8. Run removeChr_ChrM_Multialle.pl to get merged.nochrnoChrM_removemultialle.vcf
+9. Run annotate.sh for annotation of VCF file using annovar
+10. Run vcf2gds.R convert vcf.gz to gds file
+11. Run debug_R420PChome_code__removemultialle.R to get association.tsv results 
 
 Jerry Sheng and Dr. Shouguo Gao, NHLBI
