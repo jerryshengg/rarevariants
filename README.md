@@ -13,4 +13,4 @@ Pipeline for rare variant association analysis (FASTQ --> TSV association file f
 10. Run vcf2gds.R change vcf.gz to gds file
 11. Run debug_R420PChome_code__removemultialle.R to get the result
 
-Jerry Sheng and Dr. Shouguo Gao 
+Jerry Sheng and Dr. Shouguo Gao, NHLBI
