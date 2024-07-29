@@ -1,9 +1,9 @@
 module load bcftools
 # usage: bash <script> ${vcfFile} ${annovarFolder} ${refbuild} ${outputPrefix} [${VCFAnno} ${toml}] [${protocol} ${operation}]
 
-# databases from annovar has multiple lines for the same variant. I think this is mainly to maintein the compatibility with vcf format and the previous annovar's previous av format
+# databases from annovar has multiple lines for the same variant. I think this is mainly to maintain its compatibility with tghe vcf format and the previous annovar's previous av format
 # !!!! there are some inconsistencies about how indels are represented. So some indels will not be annotated if the representation is different from annovar gnomad or gnomad itself
-# This is weired but true, e.g., * in our data but not in gnomad even though both are called by GATK
+# This is weird but true, e.g., * in our data but not in gnomad even though both are called by GATK.
 
 # input
 vcfFile="./merged.nochrnoChrM_removemultialle.vcf"
@@ -64,40 +64,6 @@ tabix -f -p vcf ${vcfFile}.gz
 vcfAnnotatedFinal="./merged.nochrnoChrM_removemultialle.out.final.vcf.gz"
 vcfAnnotated="./merged.nochrnoChrM_removemultialle.vcf.gz"
 bcftools annotate -a ${outputPrefix}.vcf.gz -c INFO -Oz -o ${vcfAnnotatedFinal} ${vcfAnnotated}
-
-###########END#########################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-##gunzip -c NIH_normal.merged.filtered-snps.final.vcf.gz > NIH_normal.merged.filtered-snps.final.vcf
-##remove chrM
-perl removeChrChrM.pl
-##bzip
-bgzip -c NIH_normal.merged.filtered-snps.final.vcf > NIH_normal.merged.filtered-snps.final.vcf.gz 
-tabix -f -p vcf NIH_normal.merged.filtered-snps.final.vcf.gz
-bgzip -c NIH_normal.merged.filtered-snps.final.nochrnoChrM.vcf > NIH_normal.merged.filtered-snps.final.nochrnoChrM.vcf.gz 
-tabix -f -p vcf NIH_normal.merged.filtered-snps.final.nochrnoChrM.vcf.gz
-head -10000 NIH_normal.merged.filtered-snps.final.nochrnoChrM.vcf > NIH_normal.merged.filtered-snps.final.nochrnoChrM.10000.vcf
-
-perl removeChrChrMsub.pl
-bgzip -c NIH_normal.merged.filtered-snps.final.nochrnoChrM_10perc.vcf > NIH_normal.merged.filtered-snps.final.nochrnoChrM_10perc.vcf.gz 
-tabix -f -p vcf NIH_normal.merged.filtered-snps.final.nochrnoChrM_10perc.vcf.gz
-
-perl removeChrChrM_removemultialle.pl
-bgzip -c NIH_normal.merged.filtered-snps.final.nochrnoChrM_removemultialle.vcf > NIH_normal.merged.filtered-snps.final.nochrnoChrM_removemultialle.vcf.gz 
-tabix -f -p vcf NIH_normal.merged.filtered-snps.final.nochrnoChrM_removemultialle.vcf.gz
 
 
 
