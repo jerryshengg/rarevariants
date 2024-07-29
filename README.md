@@ -4,9 +4,9 @@ Pipeline for rare variant association analysis (FASTQ --> TSV association file f
 1. Run variantcalling.sh with FASTQ sample inputs to get gvcf file for each sample
 2. Run DBIimport.sh to save genotype information
 3. Run genotype.sh to get genotype of all chomosomes and merge into one gvcf file.
-4. Run VariatRecalibrate.sh
+4. Run VariantRecalibrate.sh
 5. Run ApplyVQSR.sh
-6. Run variant_filt
+6. Run variant_filt.sh
 7. In finalvcf/filteringdbsnp folder, unzip merged.vcf
 8. In removeChrChrM_removemultialle.pl to get merged.nochrnoChrM_removemultialle.vcf
 9. In annotate_Jerry.sh for annotation of annovar
