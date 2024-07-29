@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#Jerry Sheng
-#Variant Filtration + Annotation
+# Jerry Sheng
+# Variant Filtration 
 
 module load samtools
 module load picard
@@ -11,8 +11,10 @@ module load bedtools
 
 ref = "/fdb/igenomes/Homo_sapiens/UCSC/hg19/Sequence/BWAIndex/genome.fa"
 
+# Filter SNPs
+
 gatk VariantFiltration \
-	-R /fdb/igenomes/Homo_sapiens/UCSC/hg19/Sequence/BWAIndex/genome.fa \
+	-R {ref} \
 	-V finalvcf/filtering/SNP.recalibrated_99.9.vcf.gz \
 	-O finalvcf/filtering/SNP.recalibrated_99.9.filtering.vcf.gz \
 	--filter-name "QD_filter" --filter-expression "QD < 2.0" \
@@ -27,7 +29,7 @@ gatk VariantFiltration \
 
 # Filter INDELS
 gatk --java-options "-Xmx4G" VariantFiltration \
-	-R /fdb/igenomes/Homo_sapiens/UCSC/hg19/Sequence/BWAIndex/genome.fa \
+	-R {ref} \
 	-V finalvcf/filtering/indel.SNP.recalibrated_99.9.vcf.gz \
 	-O finalvcf/filtering/indel.SNP.recalibrated_99.9.filtering.vcf.gz \
 	--filter-name "QD_filter" --filter-expression "QD < 2.0" \
