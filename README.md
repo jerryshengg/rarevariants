@@ -7,7 +7,7 @@ Pipeline for rare variant association analysis (FASTQ --> TSV association file f
 4. Run VariantRecalibrate.sh
 5. Run ApplyVQSR.sh
 6. Run variant_filt.sh
-7. In finalvcf/filteringdbsnp folder, unzip merged.vcf
+7. In finalvcf/filteringdbsnp folder, unzip merged.vcf.gz files 
 8. In removeChrChrM_removemultialle.pl to get merged.nochrnoChrM_removemultialle.vcf
 9. In annotate_Jerry.sh for annotation of annovar
 10. Run vcf2gds.R change vcf.gz to gds file
