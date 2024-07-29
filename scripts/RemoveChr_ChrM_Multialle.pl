@@ -1,5 +1,7 @@
-####We do this due to the requiremtnby cocoRV, because it use , to split
+# Remove Chr in the Chr column, any ChrM rows, and any multialleles in the VCF file.
+# We do this due to the input requirements by cocoRV, because it uses "," to split data
 
+# Change inputs as necessary
 open(INFILE, "merged.vcf")||die"";
 open(OUTFILE, ">merged.nochrnoChrM_removemultialle.vcf")||die"";
 for($ii=0; $ii<35; $ii++){
