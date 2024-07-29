@@ -11,7 +11,7 @@ GENDB_DIR="gatk_ped"
 FINAL_VCF_DIR="finalvcf"
 MERGED_VCF="${FINAL_VCF_DIR}/merged.vcf.gz"
 
-# Genotype GVCFs (uncomment and adjust as needed)
+# Genotype GVCFs
 for ii in {1..22}; do
     gatk GenotypeGVCFs -R "$GENOME_FA" -V gendb://"$GENDB_DIR"/chr${ii}_gdb -O "$FINAL_VCF_DIR"/chr${ii}.vcf.gz
 done
