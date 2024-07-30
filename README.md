@@ -11,6 +11,6 @@ Pipeline for rare variant association analysis (FASTQ --> TSV association file f
 8. Run removeChr_ChrM_Multialle.pl to get merged.nochrnoChrM_removemultialle.vcf
 9. Run annotate.sh for annotation of VCF file using annovar
 10. Run vcf2gds.R convert vcf.gz to gds file
-11. Run debug_R420PChome_code__removemultialle.R to get association.tsv results 
+11. Run CoCoRV_debugged.R to get association.tsv results 
 
 Jerry Sheng and Dr. Shouguo Gao, NHLBI
